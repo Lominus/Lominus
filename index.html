@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS Configuration for Dark Mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            transition: background-color 0.5s ease;
+        }
+
+        .dark body {
+            background-color: #1a202c;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+
+        .scale-in.is-visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+    <!-- Toggle Button for Dark Mode -->
+    <button id="theme-toggle" class="fixed top-10 right-4 p-3 rounded-full bg-white dark:bg-gray-800 shadow-md transition-transform duration-300 hover:scale-110 z-50">
+        <i id="theme-icon" class="fas fa-moon text-gray-800 dark:text-yellow-400"></i>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-lg rounded-b-xl">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800 dark:text-gray-100">Portofolio.</a>
+            <div class="space-x-4 hidden md:block">
+                <a href="#tentang" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Tentang</a>
+                <a href="#proyek" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Proyek</a>
+                <a href="#kontak" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header & Hero Section -->
+    <header id="hero" class="py-20 md:py-32 text-center bg-white dark:bg-gray-800 shadow-lg rounded-b-xl mx-4 mt-4">
+        <div class="container mx-auto px-4 fade-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight">
+                Halo, saya <span class="text-indigo-600">Nama Kamu</span>.
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-600 dark:text-gray-400 mt-4">
+                Seorang pengembang web yang bersemangat.
+            </p>
+        </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Tentang Saya Section -->
+        <section id="tentang" class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold border-b-2 border-indigo-500 pb-2 mb-4 text-gray-900 dark:text-gray-100">Tentang Saya</h2>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Saya memiliki pengalaman dalam membangun aplikasi web yang modern dan responsif. Keahlian saya meliputi HTML, CSS (terutama dengan Tailwind), dan JavaScript. Saya selalu bersemangat untuk belajar teknologi baru dan menciptakan solusi digital yang inovatif.
+                </p>
+            </div>
+        </section>
+
+        <!-- Proyek Section -->
+        <section id="proyek" class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold border-b-2 border-indigo-500 pb-2 mb-6 text-gray-900 dark:text-gray-100">Proyek</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Item 1 -->
+                    <div class="project-card scale-in">
+                        <div class="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden mb-4 animate-pulse"></div>
+                        <h3 class="text-xl font-semibold mb-2">Proyek Web E-Commerce</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Pengembangan front-end untuk toko online menggunakan React dan Tailwind CSS.
+                        </p>
+                    </div>
+                    <!-- Project Item 2 -->
+                    <div class="project-card scale-in" style="transition-delay: 0.2s;">
+                        <div class="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden mb-4 animate-pulse"></div>
+                        <h3 class="text-xl font-semibold mb-2">Aplikasi Manajemen Tugas</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Aplikasi satu halaman (SPA) untuk mengelola tugas harian.
+                        </p>
+                    </div>
+                    <!-- Project Item 3 -->
+                    <div class="project-card scale-in" style="transition-delay: 0.4s;">
+                        <div class="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden mb-4 animate-pulse"></div>
+                        <h3 class="text-xl font-semibold mb-2">Desain Halaman Landing</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Desain UI/UX dan implementasi front-end untuk halaman promosi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak Section -->
+        <section id="kontak" class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold border-b-2 border-indigo-500 pb-2 mb-6 text-gray-900 dark:text-gray-100">Hubungi Saya</h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                    Tertarik untuk berkolaborasi atau ingin sekadar menyapa? Isi formulir di bawah ini!
+                </p>
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pesan</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors duration-300">
+                        Kirim Pesan
+                    </button>
+                </form>
+                <div id="form-message" class="mt-4 text-center text-sm font-medium hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-smtext-gray-600 dark:text-gray-400">
+        <p>&copy; 2024 Nama Kamu. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+    <script>
+        // JavaScript untuk Dark/Light Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Cek preferensi tema dari local storage atau sistem
+        const isDarkMode = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDarkMode) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        
+        // Atur ikon awal
+        const updateIcon = () => {
+            const icon = themeToggleBtn.querySelector('i');
+            if (htmlElement.classList.contains('dark')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        };
+        updateIcon();
+
+        // Tambahkan event listener untuk tombol
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateIcon();
+        });
+
+
+        // JavaScript untuk Animasi Gulir
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in, .scale-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // JavaScript untuk Formulir Kontak
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            formMessage.classList.remove('hidden');
+            formMessage.classList.remove('text-green-600', 'text-red-600');
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simulate form submission
+            setTimeout(() => {
+                if (name && email && message) {
+                    formMessage.classList.add('text-green-600');
+                    formMessage.textContent = 'Pesan Anda telah berhasil terkirim! Terima kasih.';
+                    contactForm.reset();
+                } else {
+                    formMessage.classList.add('text-red-600');
+                    formMessage.textContent = 'Gagal mengirim pesan. Mohon lengkapi semua bidang.';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+
