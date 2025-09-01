@@ -102,7 +102,9 @@
         <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-2">
                 <!-- Profil Andre AI -->
-                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">A</div>
+                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center p-1 overflow-hidden">
+                    <img src="https://placehold.co/40x40/5b84d4/ffffff?text=AI" alt="Ikon Profil AI" class="w-full h-full object-cover">
+                </div>
                 <h1 class="text-xl font-bold text-gray-800 dark:text-white">Andre AI</h1>
             </div>
             <div class="flex items-center space-x-2">
@@ -127,7 +129,8 @@
             <!-- Pesan akan ditambahkan di sini oleh JavaScript -->
             <div class="flex items-start chat-message ai">
                 <div class="message-bubble bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white shadow-md">
-                    Halo! Saya Andre AI, asisten Anda. Ada yang bisa saya bantu?
+                    <p>Halo! Saya Andre AI, asisten Anda. Ada yang bisa saya bantu?</p>
+                    <span class="block text-right text-xs text-gray-500 dark:text-gray-400 mt-1">10:07 PM</span>
                 </div>
             </div>
         </div>
@@ -150,7 +153,7 @@
                         <circle cx="12" cy="7.5" r="2.5" />
                     </svg>
                 </button>
-                <textarea id="userInput" class="flex-grow p-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white placeholder-gray-200 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ketik pesan Anda..." rows="1"></textarea>
+                <textarea id="userInput" class="flex-grow p-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ketik pesan Anda..." rows="1"></textarea>
                 <button id="sendButton" class="p-3 rounded-xl bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
@@ -213,11 +216,16 @@
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('flex', 'items-start', 'chat-message', sender === 'user' ? 'user' : 'ai');
             
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
             let content = `<div class="message-bubble shadow-md">`;
             if (imageUrl) {
                 content += `<img src="${imageUrl}" class="image-preview mb-2" alt="Uploaded Image">`;
             }
-            content += `<p>${text}</p></div>`;
+            content += `<p>${text}</p>`;
+            content += `<span class="block text-right text-xs text-gray-500 dark:text-gray-400 mt-1">${timeString}</span>`;
+            content += `</div>`;
 
             messageDiv.innerHTML = content;
             chatbox.appendChild(messageDiv);
